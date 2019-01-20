@@ -17,4 +17,5 @@ for imageName in ${ext_images[@]} ; do
   docker rmi $old_GCR_URL/$imageName
 done
 # 推送到dockerhub
+  docker images
   docker push $HUB/$imageName
