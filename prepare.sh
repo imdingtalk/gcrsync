@@ -1,10 +1,5 @@
 #!/bin/bash
-rm -rf /etc/apt/*
-apt-get update && apt-get install -y apt-transport-https
-curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - 
-cat <<EOF >/etc/apt/kubernetes.list
-deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
-EOF  
-apt-get update
-apt-get install -y kubelet kubeadm kubectl
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubeadm
+chmod +x ./kubeadm
+mv ./kubeadm /usr/local/bin/kubeadm
 kubeadm  config images pull
