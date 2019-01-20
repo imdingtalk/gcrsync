@@ -9,6 +9,6 @@ services:
   - docker
 before_install:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- bash prepare.sh
+- sudo  bash prepare.sh
 script:
-- bash sync.sh
+- sudo  bash sync.sh
