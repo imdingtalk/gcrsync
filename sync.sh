@@ -9,13 +9,13 @@ ext_images=(`docker images |grep -v TAG | grep -v "k8s.gcr.io" | grep -v "$HUB" 
 for imageName in ${images[@]} ; do
   docker tag  $GCR_URL/$imageName $HUB/$imageName
   docker rmi $GCR_URL/$imageName
+  docker push $HUB/$imageName
 done
 # 额外镜像打tag
 for imageName in ${ext_images[@]} ; do
   chimage=`echo $imageName| awk -F "/" '{print $2}'`
   docker tag  $old_GCR_URL/$imageName $HUB/$chimage
   docker rmi $old_GCR_URL/$imageName
+  docker push $HUB/$chimage
 done
-# 推送到dockerhub
-  docker images
-  docker push $HUB/$imageName
+docker images
