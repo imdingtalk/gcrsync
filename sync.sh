@@ -2,7 +2,7 @@ GCR_URL=k8s.gcr.io
 old_GCR_URL=gcr.io
 HUB=imdingtalk
 # 获取核心镜像
-images=(`docker images |grep -v TAG | awk -F "/" '{for (i=2 ;i<=NF;i++) printf $i "/"; printf "\n" }' | awk '{print $1":"$2}'`)
+images=(`docker images |grep -v TAG |  grep "k8s.gcr.io" | awk -F "/" '{for (i=2 ;i<=NF;i++) printf $i "/"; printf "\n" }' | awk '{print $1":"$2}'`)
 # 获取额外镜像
 ext_images=(`docker images |grep -v TAG | grep -v "k8s.gcr.io" | grep -v "$HUB" | awk -F "/" '{for (i=2 ;i<=NF;i++) printf $i "/"; printf "\n" }' | awk '{print $1":"$2}'`)
 # 核心镜像到tag打
@@ -13,7 +13,9 @@ done
 # 额外镜像打tag
 for imageName in ${ext_images[@]} ; do
   docker tag  $old_GCR_URL/$imageName $HUB/$imageName
-  docker rmi $pld_GCR_URL/$imageName
+  docker rmi $old_GCR_URL/$imageName
+
+
 done
 # 打tag的镜像push到dockerhub
 docker push $HUB/$imageName
