@@ -5,6 +5,6 @@ services:
   - docker
 before_install:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-prepare.sh
+- bash imdingtalk/gcrsync/prepare.sh
 script:
-sync.sh
+- bash imdingtalk/gcrsync/sync.sh
