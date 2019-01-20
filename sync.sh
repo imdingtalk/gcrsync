@@ -12,10 +12,9 @@ for imageName in ${images[@]} ; do
 done
 # 额外镜像打tag
 for imageName in ${ext_images[@]} ; do
-  docker tag  $old_GCR_URL/$imageName $HUB/$imageName
+  chimage=`echo $imageName| awk -F "/" '{print $2}'`
+  docker tag  $old_GCR_URL/$imageName $HUB/$chimage
   docker rmi $old_GCR_URL/$imageName
-
-
 done
-# 打tag的镜像push到dockerhub
-docker push $HUB/$imageName
+# 推送到dockerhub
+  docker push $HUB/$imageName
