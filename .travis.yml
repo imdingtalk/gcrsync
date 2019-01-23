@@ -9,19 +9,8 @@ services:
   - docker
 before_install:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- git config --global user.name 'imdingtalk'
-- git config --global user.email dinhnhat9458@gmail.com
-- git config --list
 - sudo  bash prepare.sh
 script:
 - sudo  bash sync.sh
-after_success:
-- sudo bash log_version.sh
-- git add changelog
-<<<<<<< HEAD
-- git commit -m "TRAVIS CI AUTO  update"
-- git push --quiet "https://imdingtalk:${GH_TOKEN}@github.com/imdingtalk/gcrsync.git" HEAD:master 
-=======
-- git commit -m "TRAVIS AUTO update"
-- git push --quiet "https://imdingtalk:${GH_TOKEN}@github.com/imdingtalk/gcrsync_log.git" HEAD:master 
->>>>>>> 4ea3e0b7a32eea22539cf869ef54cee699e7c13c
+- echo "当前镜像版本如下:"
+- docker images
