@@ -18,5 +18,5 @@ script:
 after_success:
 - sudo bash log_version.sh
 - git add changelog
-- git commit -m "${now} update"
-- git push --quiet "https://imdingtalk:${GH_TOKEN}@github.com/imdingtalk/gcrsync.git" HEAD:master 
+- git commit -m "TRAVIS AUTO update"
+- git push --quiet "https://imdingtalk:${GH_TOKEN}@github.com/imdingtalk/gcrsync_log.git" HEAD:master 
