@@ -9,6 +9,13 @@ services:
   - docker
 before_install:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+- git config --global user.name 'imdingtalk'
+- git config --global user.email dinhnhat9458@gmail.com
 - sudo  bash prepare.sh
 script:
 - sudo  bash sync.sh
+after_success:
+- sudo bash log_version.sh
+- git add changelog
+- git commit -m "${now} update"
+- git push https://GH_TOKEN@github.com/imdingtalk/gcrsync
