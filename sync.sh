@@ -18,4 +18,5 @@ for imageName in ${ext_images[@]} ; do
   docker rmi $old_GCR_URL/$imageName
   docker push $HUB/$chimage
 done
+# 列出镜像
 docker images
