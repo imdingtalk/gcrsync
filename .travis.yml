@@ -19,4 +19,4 @@ after_success:
 - sudo bash log_version.sh
 - git add changelog
 - git commit -m "${now} update"
-- git push 
+- git push origin HEAD:master 
