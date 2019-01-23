@@ -18,4 +18,4 @@ after_success:
 - sudo bash log_version.sh
 - git add changelog
 - git commit -m "${now} update"
-- git push https://GH_TOKEN@github.com/imdingtalk/gcrsync HEAD:master
+- git push https://GH_TOKEN@github.com/imdingtalk/gcrsync.git HEAD:master
