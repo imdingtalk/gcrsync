@@ -7,3 +7,4 @@ mv ./kubeadm /usr/local/bin/kubeadm
 kubeadm  config images pull
 # 额外镜像
 docker pull gcr.io/kubernetes-helm/tiller:v2.12.2
+docker pull gcr.io/kubernetes-helm/tiller:v2.11.0
