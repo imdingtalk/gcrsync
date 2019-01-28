@@ -12,5 +12,3 @@ before_install:
 - sudo  bash prepare.sh
 script:
 - sudo  bash sync.sh
-- echo "当前镜像版本如下:"
-- docker images
