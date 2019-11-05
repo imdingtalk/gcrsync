@@ -8,3 +8,4 @@ kubeadm  config images pull
 # 额外镜像
 docker pull gcr.io/kubernetes-helm/tiller:v2.12.2
 docker pull gcr.io/kubernetes-helm/tiller:v2.11.0
+docker pull docker.elastic.co/beats/filebeat:7.1.1
