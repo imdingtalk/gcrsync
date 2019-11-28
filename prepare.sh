@@ -12,3 +12,10 @@ docker pull gcr.io/kubernetes-helm/tiller:v2.11.0
 docker pull docker.elastic.co/beats/filebeat:7.1.1
 docker tag docker.elastic.co/beats/filebeat:7.1.1 imdingtalk/filebeat:7.1.1
 docker push imdingtalk/filebeat:7.1.1
+
+#其他骚操作
+git clone https://github.com/ddurko1950/flan-scan.git
+cd flan-scan
+make build 
+docker tag flan_scan imdingtalk/flan_scan
+docker push imdingtalk/flan_scan
