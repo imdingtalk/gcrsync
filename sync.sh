@@ -19,7 +19,7 @@ for imageName in ${ext_images[@]} ; do
   docker push $HUB/$chimage
 done
 # 列出镜像
-echo "当前kubeadm版本信息如下："
+echo "当前kubeadm版本信息如下:"
 kubeadm  version
 echo "对应镜像版本如下："
 docker images | grep -E "kube|etcd|coredns|pause"
