@@ -1,0 +1,2 @@
+# gcrsync
+sync mirror
