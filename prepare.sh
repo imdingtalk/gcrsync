@@ -5,17 +5,3 @@ chmod +x ./kubeadm
 mv ./kubeadm /usr/local/bin/kubeadm
 # 通过以下命令获取最新镜像
 kubeadm  config images pull
-# 额外镜像
-docker pull gcr.io/kubernetes-helm/tiller:v2.12.2
-docker pull gcr.io/kubernetes-helm/tiller:v2.11.0
-##其他莫名奇妙的镜像
-docker pull docker.elastic.co/beats/filebeat:7.1.1
-docker tag docker.elastic.co/beats/filebeat:7.1.1 imdingtalk/filebeat:7.1.1
-docker push imdingtalk/filebeat:7.1.1
-
-#其他骚操作
-git clone https://github.com/ddurko1950/flan-scan.git
-cd flan-scan
-make build 
-docker tag flan_scan imdingtalk/flan_scan
-docker push imdingtalk/flan_scan
