@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: prestop
-        image: stopdemo 
+        image: stopdemo:latest 
+        imagePullPolicy: IfNotPresent
         lifecycle:
           preStop:
             exec:

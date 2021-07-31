@@ -1,2 +1,2 @@
 #!/bin/sh
-sh -c /root/stopDemo
+exec /root/stopDemo
