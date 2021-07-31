@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-prestop
+  labels:
+    app: prestop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prestop
+  template:
+    metadata:
+      labels:
+        app: prestop
+    spec:
+      containers:
+      - name: prestop
+        image: stopdemo 
+        lifecycle:
+          preStop:
+            exec:
+              command:
+              - sh
+              - /root/stop.sh

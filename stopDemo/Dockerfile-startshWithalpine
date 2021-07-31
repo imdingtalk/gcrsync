@@ -1,0 +1,9 @@
+FROM golang:1.15 as builder
+WORKDIR /go/
+COPY stopDemo.go    .
+RUN go build stopDemo.go
+FROM golang:alpine 
+WORKDIR /root/
+COPY --from=builder /go/stopDemo .
+ADD start.sh stop.sh  ./
+CMD ["/bin/sh","/root/start.sh"] 

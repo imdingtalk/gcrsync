@@ -1,0 +1,8 @@
+FROM golang:1.15 as builder
+WORKDIR /go/
+COPY stopDemo.go    .
+RUN go build stopDemo.go
+FROM alpine 
+WORKDIR /root/
+COPY --from=builder /go/stopDemo .
+CMD ./stopDemo 
