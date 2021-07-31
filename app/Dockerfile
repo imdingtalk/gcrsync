@@ -1,3 +1,4 @@
-FROM golang:alpine
+#FROM golang:alpine
+FROM alpine
 COPY . .
 CMD ["./hello"]
